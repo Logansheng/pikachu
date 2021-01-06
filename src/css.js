@@ -217,6 +217,6 @@ body {
 .nose:hover {
   animation: wave 250ms infinite;
 }
-/*最终完成了，用电脑预览效果更佳哦*/
+/*最终完成了，用电脑预览效果更佳*/
 `;
 export default string;
