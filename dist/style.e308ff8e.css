@@ -12,8 +12,8 @@ body {
   position: relative;
 }
 .nose {
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border: 10px solid transparent;
   border-top: 10px solid black;
   position: relative;
@@ -41,8 +41,8 @@ body {
   top: 260px;
   margin-left: -32px;
   border-radius: 50%;
-}
-.eyes .Gu {
+  animation: dis 1000ms ;
+ .Gu {
   width: 28px;
   height: 28px;
   border: 2px solid black;
@@ -51,7 +51,22 @@ body {
   border-radius: 50%;
   right: 22px;
   top: 2px;
+
 }
+}
+@keyframes dis {
+0%{
+  height:64px;
+}
+  50%{
+    height: 0  ;
+    width: 70px;
+  }
+  100%{
+    height: 64px;
+  }
+}
+
 .eyes.Right {
   transform: translateX(120px);
 }
@@ -80,22 +95,22 @@ body {
   border: 4px solid black;
   border-top: transparent;
   border-right: transparent;
-  border-radius: 0% 0 0 90%;
+  border-radius: 0 0 0 90%;
   transform: rotate(-26deg);
   position: absolute;
   background: #ffe600;
-  top: 0%;
+  top: 0;
 }
 .mouth .up .l {
   position: absolute;
   height: 30px;
   width: 90px;
-  border: 4px solid black;
+  border: 4px solid #000000;
   border-top: transparent;
   border-left: transparent;
-  border-radius: 0% 0 90% 0%;
+  border-radius: 0 0 90% 0;
   transform: rotate(26deg);
-  top: 0%;
+  top: 0;
   left: 90px;
   background: #ffe600;
 }
@@ -140,22 +155,23 @@ body {
   top: 360px;
 }
 /* 下面是加鼻子摇动的动画 */
-@keyframes wave{
-  0%{
+@keyframes wave {
+  0% {
     transform: rotate(0deg);
   }
-  33%{
+  33% {
     transform: rotate(10deg);
   }
-  66%{
+  66% {
     transform: rotate(-10deg);
   }
-  100%{
+  100% {
     transform: rotate(0deg);
   }
 }
-.nose:hover{
+.nose:hover {
   animation: wave 100ms infinite;
 }
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */

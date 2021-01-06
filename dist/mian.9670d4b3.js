@@ -117,79 +117,90 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"css.js":[function(require,module,exports) {
+"use strict";
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var string = "\n* {\n  box-sizing: border-box;\n  padding: 0;\n  margin: 0;\n}\nbody {\n  background: #ffe600;\n  padding: 0;\n  margin: 0;\n}\n.skin {\n  position: relative;\n}\n.nose {\n  width: 0;\n  height: 0;\n  border: 10px solid transparent;\n  border-top: 10px solid black;\n  position: relative;\n  left: 50%;\n  top: 300px;\n  margin-left: -10px;\n}\n.nose .yuan {\n  border: 1px solid black;\n  width: 20px;\n  height: 10px;\n  position: absolute;\n  top: -16px;\n  right: -10px;\n  border-radius: 50%;\n  background-color: black;\n}\n.eyes {\n  height: 64px;\n  width: 64px;\n  border: 2px solid black;\n  background: #2e2e2e;\n  position: absolute;\n  left: 50%;\n  top: 260px;\n  margin-left: -32px;\n  border-radius: 50%;\n}\n.eyes::after {\n  content: '';\n  z-index: 10;\n  width: 28px;\n  height: 28px;\n  border: 2px solid black;\n  background: white;\n  position: absolute;\n  border-radius: 50%;\n  right: 22px;\n  top: 2px;\n  animation: look-around 3000ms  infinite;\n\n}\n@-webkit-keyframes look-around {\n  0% {\n    -webkit-transform: translate(0);\n    transform: translate(0);\n  }\n  5% {\n    -webkit-transform: translate(50%, -25%);\n    transform: translate(50%, -25%);\n  }\n  10% {\n    -webkit-transform: translate(50%, -25%);\n    transform: translate(50%, -25%);\n  }\n  15% {\n    -webkit-transform: translate(-100%, -25%);\n    transform: translate(-100%, -25%);\n  }\n  20% {\n    -webkit-transform: translate(-100%, -25%);\n    transform: translate(-100%, -25%);\n  }\n  25% {\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n  }\n  100% {\n    -webkit-transform: translate(0, 0);\n    transform: translate(0, 0);\n  }\n}\n@keyframes look-around {\n  0% {\n    transform: translate(0);\n  }\n\n  50% {\n\n    transform: translate(20%, 0);\n  }\n  100% {\n\n    transform: translate(0, 0);\n  }\n}\n\n.eyes.Right {\n  transform: translateX(120px);\n\n}\n.eyes.Left {\n  transform: translateX(-120px);\n\n}\n.mouth {\n  height: 200px;\n  width: 180px;\n  position: absolute;\n  right: 50%;\n  margin-right: -90px;\n  top: 320px;\n  overflow: hidden;\n}\n.kua {\n  height: 10px;\n  width: 180px;\n  background: #ffe600;\n  z-index: 0;\n}\n\n.mouth .up .r {\n  height: 30px;\n  width: 90px;\n  border: 4px solid black;\n  border-top: transparent;\n  border-right: transparent;\n  border-radius: 0 0 0 90%;\n  transform: rotate(-26deg);\n  position: absolute;\n  background: #ffe600;\n  top: 0;\n}\n.mouth .up .l {\n  position: absolute;\n  height: 30px;\n  width: 90px;\n  border: 4px solid #000000;\n  border-top: transparent;\n  border-left: transparent;\n  border-radius: 0 0 90% 0;\n  transform: rotate(26deg);\n  top: 0;\n  left: 90px;\n  background: #ffe600;\n}\n.mouth .down {\n  height: 400px;\n  width: 120px;\n  border: 3px solid black;\n  border-radius: 50%;\n  position: absolute;\n  left: 30px;\n  top: -230px;\n  overflow: hidden;\n  background: #9b000a;\n  z-index: -1;\n}\n.mouth .down .pink {\n  height: 400px;\n  width: 200px;\n  border-radius: 50%;\n  position: absolute;\n  right: -43px;\n  top: 260px;\n  background: #ff485f;\n  z-index: 0;\n}\n.face {\n  width: 88px;\n  height: 88px;\n  position: absolute;\n  border: 3px solid black;\n  right: 50%;\n  margin-right: -44px;\n  border-radius: 50%;\n  background: #ff0000;\n}\n.face.Rf {\n  transform: translateX(180px);\n  top: 360px;\n}\n.face.Lf {\n  transform: translateX(-180px);\n  top: 360px;\n}\n/* \u4E0B\u9762\u662F\u52A0\u9F3B\u5B50\u6447\u52A8\u7684\u52A8\u753B */\n@keyframes wave {\n  0% {\n    transform: rotate(-10deg);\n  }\n  33% {\n    transform: rotate(10deg);\n  }\n  66% {\n    transform: rotate(-10deg);\n  }\n  100% {\n    transform: rotate(10deg);\n  }\n}\n.nose:hover {\n  animation: wave 250ms infinite;\n\n}\n";
+var _default = string;
+exports.default = _default;
+},{}],"mian.js":[function(require,module,exports) {
+"use strict";
 
-  return bundleURL;
-}
+var _css = _interopRequireDefault(require("./css.js"));
 
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-    if (matches) {
-      return getBaseURL(matches[0]);
-    }
-  }
+var player = {
+  id: undefined,
+  time: 100,
+  ui: {
+    demo: document.querySelector("#demo"),
+    demo2: document.querySelector("#demo2")
+  },
+  events: {
+    "#btnPause": "pause",
+    "#btnPlay": "play",
+    "#btnSlow": "slow",
+    "#btnNormal": "normal",
+    "#btnFast": "fast"
+  },
+  n: 1,
+  init: function init() {
+    player.ui.demo.innerText = _css.default.substr(0, player.n);
+    player.ui.demo2.innerHTML = _css.default.substr(0, player.n);
+    player.bindEvents();
+    player.play();
+  },
+  bindEvents: function bindEvents() {
+    for (var key in player.events) {
+      if (player.events.hasOwnProperty(key)) {
+        var value = player.events[key]; // pause / play / slow
 
-  return '/';
-}
-
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
-}
-
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
-
-function updateLink(link) {
-  var newLink = link.cloneNode();
-
-  newLink.onload = function () {
-    link.remove();
-  };
-
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
-
-var cssTimeout = null;
-
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+        document.querySelector(key).onclick = player[value];
       }
     }
+  },
+  run: function run() {
+    player.n += 1;
 
-    cssTimeout = null;
-  }, 50);
-}
+    if (player.n > _css.default.length) {
+      window.clearInterval(player.id);
+      return;
+    }
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
-
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/css-loader.js"}],"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+    player.ui.demo.innerText = _css.default.substr(0, player.n);
+    player.ui.demo2.innerHTML = _css.default.substr(0, player.n);
+    player.ui.demo.scrollTop = player.ui.demo.scrollHeight;
+  },
+  play: function play() {
+    window.clearInterval(player.id);
+    player.id = setInterval(player.run, player.time);
+  },
+  pause: function pause() {
+    window.clearInterval(player.id);
+  },
+  slow: function slow() {
+    player.pause();
+    player.time = 150;
+    player.play();
+  },
+  normal: function normal() {
+    player.pause();
+    player.time = 75;
+    player.play();
+  },
+  fast: function fast() {
+    player.pause();
+    player.time = 0;
+    player.play();
+  }
+};
+player.init();
+},{"./css.js":"css.js"}],"../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +228,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54516" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52961" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -393,5 +404,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e308ff8e.js.map
+},{}]},{},["../../../../AppData/Local/Yarn/Data/global/node_modules/parcel/src/builtins/hmr-runtime.js","mian.js"], null)
+//# sourceMappingURL=/mian.9670d4b3.js.map

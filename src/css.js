@@ -1,3 +1,4 @@
+const string = `
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,8 +13,8 @@ body {
   position: relative;
 }
 .nose {
-  width: 0px;
-  height: 0px;
+  width: 0;
+  height: 0;
   border: 10px solid transparent;
   border-top: 10px solid black;
   position: relative;
@@ -42,7 +43,9 @@ body {
   margin-left: -32px;
   border-radius: 50%;
 }
-.eyes .Gu {
+.eyes::after {
+  content: '';
+  z-index: 10;
   width: 28px;
   height: 28px;
   border: 2px solid black;
@@ -51,12 +54,61 @@ body {
   border-radius: 50%;
   right: 22px;
   top: 2px;
+  animation: look-around 3000ms  infinite;
+
 }
+@-webkit-keyframes look-around {
+  0% {
+    -webkit-transform: translate(0);
+    transform: translate(0);
+  }
+  5% {
+    -webkit-transform: translate(50%, -25%);
+    transform: translate(50%, -25%);
+  }
+  10% {
+    -webkit-transform: translate(50%, -25%);
+    transform: translate(50%, -25%);
+  }
+  15% {
+    -webkit-transform: translate(-100%, -25%);
+    transform: translate(-100%, -25%);
+  }
+  20% {
+    -webkit-transform: translate(-100%, -25%);
+    transform: translate(-100%, -25%);
+  }
+  25% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+@keyframes look-around {
+  0% {
+    transform: translate(0);
+  }
+
+  50% {
+
+    transform: translate(20%, 0);
+  }
+  100% {
+
+    transform: translate(0, 0);
+  }
+}
+
 .eyes.Right {
   transform: translateX(120px);
+
 }
 .eyes.Left {
   transform: translateX(-120px);
+
 }
 .mouth {
   height: 200px;
@@ -80,22 +132,22 @@ body {
   border: 4px solid black;
   border-top: transparent;
   border-right: transparent;
-  border-radius: 0% 0 0 90%;
+  border-radius: 0 0 0 90%;
   transform: rotate(-26deg);
   position: absolute;
   background: #ffe600;
-  top: 0%;
+  top: 0;
 }
 .mouth .up .l {
   position: absolute;
   height: 30px;
   width: 90px;
-  border: 4px solid black;
+  border: 4px solid #000000;
   border-top: transparent;
   border-left: transparent;
-  border-radius: 0% 0 90% 0%;
+  border-radius: 0 0 90% 0;
   transform: rotate(26deg);
-  top: 0%;
+  top: 0;
   left: 90px;
   background: #ffe600;
 }
@@ -140,20 +192,23 @@ body {
   top: 360px;
 }
 /* 下面是加鼻子摇动的动画 */
-@keyframes wave{
-  0%{
-    transform: rotate(0deg);
-  }
-  33%{
-    transform: rotate(10deg);
-  }
-  66%{
+@keyframes wave {
+  0% {
     transform: rotate(-10deg);
   }
-  100%{
-    transform: rotate(0deg);
+  33% {
+    transform: rotate(10deg);
+  }
+  66% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
   }
 }
-.nose:hover{
-  animation: wave 100ms infinite;
+.nose:hover {
+  animation: wave 250ms infinite;
+
 }
+`;
+export default string;
