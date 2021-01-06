@@ -1,5 +1,6 @@
 const string = `
-* {
+  /*首先准备皮卡丘的皮肤*/
+ .skin * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -12,6 +13,7 @@ body {
 .skin {
   position: relative;
 }
+/*然后固定皮卡丘的鼻子*/
 .nose {
   width: 0;
   height: 0;
@@ -32,6 +34,7 @@ body {
   border-radius: 50%;
   background-color: black;
 }
+/*紧接着是眼睛*/
 .eyes {
   height: 64px;
   width: 64px;
@@ -43,6 +46,7 @@ body {
   margin-left: -32px;
   border-radius: 50%;
 }
+/*伪元素高光*/
 .eyes::after {
   content: '';
   z-index: 10;
@@ -57,6 +61,7 @@ body {
   animation: look-around 3000ms  infinite;
 
 }
+/*添加动画*/
 @-webkit-keyframes look-around {
   0% {
     -webkit-transform: translate(0);
@@ -94,11 +99,26 @@ body {
 
   50% {
 
-    transform: translate(20%, 0);
+    transform: translate(40%, 20%);
   }
   100% {
 
     transform: translate(0, 0);
+  }
+}
+/* 下面是加鼻子摇动的动画 */
+@keyframes wave {
+  0% {
+    transform: rotate(-10deg);
+  }
+  33% {
+    transform: rotate(10deg);
+  }
+  66% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
   }
 }
 
@@ -110,6 +130,7 @@ body {
   transform: translateX(-120px);
 
 }
+/*接着是皮卡丘的小嘴巴*/
 .mouth {
   height: 200px;
   width: 180px;
@@ -173,6 +194,7 @@ body {
   background: #ff485f;
   z-index: 0;
 }
+/*最后是两个红红的小脸蛋*/
 .face {
   width: 88px;
   height: 88px;
@@ -191,24 +213,10 @@ body {
   transform: translateX(-180px);
   top: 360px;
 }
-/* 下面是加鼻子摇动的动画 */
-@keyframes wave {
-  0% {
-    transform: rotate(-10deg);
-  }
-  33% {
-    transform: rotate(10deg);
-  }
-  66% {
-    transform: rotate(-10deg);
-  }
-  100% {
-    transform: rotate(10deg);
-  }
-}
+
 .nose:hover {
   animation: wave 250ms infinite;
-
 }
+/*最终完成了，用电脑预览效果更佳哦*/
 `;
 export default string;
